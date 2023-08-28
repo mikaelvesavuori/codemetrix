@@ -9,7 +9,7 @@ echo -e "${GREEN}--- Codemetrix: Understand the level of coupling and changeabil
 
 # Main function
 start() {
-  node ~/.codemetrix/index.js $1
+  node ~/.codemetrix/index.mjs $1
 }
 
 start "$@"

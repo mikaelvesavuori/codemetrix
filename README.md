@@ -14,7 +14,132 @@ Codemetrix makes it a jiffy to calculate the "coupling metrics":
 
 _Read more about this on [Wikipedia](https://en.wikipedia.org/wiki/Software_package_metrics)._
 
+Here's how [ArchFit](https://github.com/mikaelvesavuori/archfit) looks, in terms of metrics.
+
+![Example of coupling metrics](readme/example.png)
+
 It'll also help you get a per-directory overlook of total lines of code in the project, percent that directory takes of all the project's code base, aggregated metrics (afferent/efferent coupling etc.), and also picks out the directories that contain the most of these details.
+
+```json
+{
+  "results": [
+    {
+      "directoryPath": "/src/application/services",
+      "afferent": 2,
+      "efferent": 21,
+      "abstractions": 0,
+      "concretions": 1,
+      "loc": 260,
+      "percent": 8.51
+    },
+    {
+      "directoryPath": "/src/application/utils",
+      "afferent": 3,
+      "efferent": 2,
+      "abstractions": 0,
+      "concretions": 2,
+      "loc": 52,
+      "percent": 1.7
+    },
+    {
+      "directoryPath": "/src/domain/fitness-functions",
+      "afferent": 14,
+      "efferent": 79,
+      "abstractions": 7,
+      "concretions": 23,
+      "loc": 1181,
+      "percent": 38.63
+    },
+    {
+      "directoryPath": "/src/domain/services",
+      "afferent": 2,
+      "efferent": 28,
+      "abstractions": 0,
+      "concretions": 2,
+      "loc": 275,
+      "percent": 9
+    },
+    {
+      "directoryPath": "/src/errors",
+      "afferent": 9,
+      "efferent": 0,
+      "abstractions": 0,
+      "concretions": 0,
+      "loc": 109,
+      "percent": 3.57
+    },
+    {
+      "directoryPath": "/src",
+      "afferent": 0,
+      "efferent": 5,
+      "abstractions": 0,
+      "concretions": 2,
+      "loc": 86,
+      "percent": 2.81
+    },
+    {
+      "directoryPath": "/src/infrastructure/aws",
+      "afferent": 20,
+      "efferent": 28,
+      "abstractions": 0,
+      "concretions": 15,
+      "loc": 684,
+      "percent": 22.37
+    },
+    {
+      "directoryPath": "/src/infrastructure/utils/io",
+      "afferent": 3,
+      "efferent": 7,
+      "abstractions": 0,
+      "concretions": 3,
+      "loc": 40,
+      "percent": 1.31
+    },
+    {
+      "directoryPath": "/src/infrastructure/utils/math",
+      "afferent": 12,
+      "efferent": 0,
+      "abstractions": 0,
+      "concretions": 3,
+      "loc": 27,
+      "percent": 0.88
+    },
+    {
+      "directoryPath": "/src/infrastructure/utils/string",
+      "afferent": 22,
+      "efferent": 0,
+      "abstractions": 0,
+      "concretions": 2,
+      "loc": 25,
+      "percent": 0.82
+    },
+    {
+      "directoryPath": "/src/infrastructure/utils/time",
+      "afferent": 10,
+      "efferent": 2,
+      "abstractions": 0,
+      "concretions": 9,
+      "loc": 83,
+      "percent": 2.72
+    },
+    {
+      "directoryPath": "/src/interfaces",
+      "afferent": 56,
+      "efferent": 16,
+      "abstractions": 12,
+      "concretions": 0,
+      "loc": 235,
+      "percent": 7.69
+    }
+  ],
+  "totalLinesOfCode": 3057,
+  "loc": "/src/domain/fitness-functions",
+  "afferent": "/src/interfaces",
+  "efferent": "/src/domain/fitness-functions",
+  "abstractions": "/src/interfaces",
+  "concretions": "/src/domain/fitness-functions"
+}
+```
 
 ## What to know
 
@@ -30,7 +155,7 @@ To build and test the code, you will need Node 19 or later.
 
 ## Installation
 
-You _could_ download the compiled file, `dist/index.js`, and follow the instructions below. This is good if you're not big on Git.
+You _could_ download the compiled file, `dist/index.mjs`, and follow the instructions below. This is good if you're not big on Git.
 
 _But the nicer option is to clone this repo and use the `install.sh` script._
 

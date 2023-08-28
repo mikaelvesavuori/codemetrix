@@ -14,7 +14,6 @@
     "refactoring",
     "software-architecture"
   ],
-  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mikaelvesavuori/codemetrix"
@@ -29,7 +28,7 @@
     "!/tests"
   ],
   "bin": {
-    "codemetrix": "dist/index.js"
+    "codemetrix": "dist/index.mjs"
   },
   "scripts": {
     "start": "npx tsx src/run.ts",
@@ -38,7 +37,8 @@
     "test:licenses": "npx license-compliance --direct --allow 'MIT;ISC;0BSD;BSD-2-Clause;BSD-3-Clause;Apache-2.0;Unlicense;CC0-1.0'",
     "test:unit": "node --loader tsx --test tests/*.ts",
     "build": "npm run clean && npm run build:ncc",
-    "build:ncc": "npx ncc build src/run.ts --license licenses.txt",
+    "build:ncc": "npx ncc build src/run.ts --license licenses.txt --target es2022 && npm run rename",
+    "rename": "mv dist/index.js dist/index.mjs",
     "clean": "rm -rf dist && mkdir -p dist",
     "package": "npm pack",
     "prepublishOnly": "npm run build",
