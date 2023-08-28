@@ -128,7 +128,6 @@ class Codemetrix {
     );
   }
 
-  // Abstractness = Number of Abstract Classes/Interfaces / Total Number of Classes/Interfaces
   private calculateAbstractness(item: CouplingResult): number {
     if (item.abstractions > 0 && item.concretions === 0) return 1;
     if (!item.abstractions && item.concretions === 0) return 0;
