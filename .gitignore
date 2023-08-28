@@ -1,0 +1,23 @@
+# Files
+.env
+.dccache
+.DS_Store
+
+# Folders
+node_modules/
+lib/
+docs/
+coverage/
+jest-coverage/
+build/
+package/
+.webpack/
+.esbuild/
+.serverless/
+
+# Diagrams
+**/*.bkp
+**/*.bak
+
+# Bundles
+*.tgz

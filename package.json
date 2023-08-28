@@ -1,0 +1,64 @@
+{
+  "name": "codemetrix",
+  "description": "Understand the level of coupling and changeability of your code in a second.",
+  "version": "1.0.0",
+  "author": "Mikael Vesavuori",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "code-analysis",
+    "static-analysis",
+    "code-quality",
+    "code-metrics",
+    "dx",
+    "refactoring",
+    "software-architecture"
+  ],
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelvesavuori/codemetrix"
+  },
+  "bugs": {
+    "url": "https://github.com/mikaelvesavuori/codemetrix/issues"
+  },
+  "homepage": "https://github.com/mikaelvesavuori/codemetrix",
+  "files": [
+    "/dist",
+    "!/dist/**/*.map",
+    "!/tests"
+  ],
+  "bin": {
+    "codemetrix": "dist/index.js"
+  },
+  "scripts": {
+    "start": "npx tsx src/run.ts",
+    "test": "npm run test:licenses && npm run test:types && npm run test:unit",
+    "test:types": "npx type-coverage --at-least 93 --strict --ignore-files \"tests/**/*.ts\" --ignore-files \"*.ts\" --ignore-files \"src/application/errors/*.ts\" --ignore-files \"testdata/*.ts\"",
+    "test:licenses": "npx license-compliance --direct --allow 'MIT;ISC;0BSD;BSD-2-Clause;BSD-3-Clause;Apache-2.0;Unlicense;CC0-1.0'",
+    "test:unit": "node --loader tsx --test tests/*.ts",
+    "build": "npm run clean && npm run build:ncc",
+    "build:ncc": "npx ncc build src/run.ts --license licenses.txt",
+    "clean": "rm -rf dist && mkdir -p dist",
+    "package": "npm pack",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "6",
+    "@typescript-eslint/parser": "6",
+    "@vercel/ncc": "0",
+    "eslint": "8",
+    "eslint-config-prettier": "9",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsdoc": "latest",
+    "eslint-plugin-prettier": "5",
+    "husky": "8",
+    "license-compliance": "latest",
+    "prettier": "3",
+    "tsx": "latest",
+    "type-coverage": "2",
+    "typescript": "5"
+  }
+}
