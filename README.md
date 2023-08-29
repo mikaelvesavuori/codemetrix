@@ -155,14 +155,14 @@ To build and test the code, you will need Node 19 or later.
 
 ## Installation
 
-You _could_ download the compiled file, `dist/index.mjs`, and follow the instructions below. This is good if you're not big on Git.
+You _could_ download the compiled file, `dist/index.mjs`, and `codemetrix.sh` and follow the instructions below. This is good if you're not big on Git.
 
 _But the nicer option is to clone this repo and use the `install.sh` script._
 
 It will:
 
 - Make a root level directory named `.codemetrix`
-- Copy `codemetrix.sh` to the new directory
+- Copy `codemetrix.sh` and `dist/index.mjs` to the new directory
 - Add a line to your `.zshrc` with an alias (`codemetrix`) that runs the script
 
 Feel free to modify the installation script or do it your way if this doesn't match how you'd like it to be set up.
